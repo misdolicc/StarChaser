@@ -1,0 +1,24 @@
+{
+  "_comment": "主要流星雨参数，取自国际流星组织 (IMO) 流星雨日历的近似值。ra/dec 为极大时刻的辐射点 (J2000, 度)，dra/ddec 为每度太阳黄经的漂移 (约等于每天)，active 为活跃起止日期 (MM-DD)，peak_sol 为极大时的太阳黄经 λ☉ (J2000)。使用前请对照当年 IMO 日历核对更新。",
+  "showers": [
+    {"code": "QUA", "name": "象限仪座", "name_en": "Quadrantids",        "active": ["12-28", "01-12"], "peak_sol": 283.15, "ra": 230.0, "dec": 49.0,  "dra": 0.8,  "ddec": -0.2, "v": 41, "zhr": 80},
+    {"code": "LYR", "name": "天琴座",   "name_en": "Lyrids",             "active": ["04-14", "04-30"], "peak_sol": 32.32,  "ra": 271.0, "dec": 34.0,  "dra": 1.1,  "ddec": 0.0,  "v": 49, "zhr": 18},
+    {"code": "ETA", "name": "宝瓶座η",  "name_en": "eta Aquariids",      "active": ["04-19", "05-28"], "peak_sol": 45.5,   "ra": 338.0, "dec": -1.0,  "dra": 0.9,  "ddec": 0.4,  "v": 66, "zhr": 50},
+    {"code": "CAP", "name": "摩羯座α",  "name_en": "alpha Capricornids", "active": ["07-03", "08-15"], "peak_sol": 127.0,  "ra": 307.0, "dec": -10.0, "dra": 0.9,  "ddec": 0.3,  "v": 23, "zhr": 5},
+    {"code": "SDA", "name": "南宝瓶座δ", "name_en": "S. delta Aquariids", "active": ["07-12", "08-23"], "peak_sol": 127.0,  "ra": 340.0, "dec": -16.0, "dra": 0.8,  "ddec": 0.2,  "v": 41, "zhr": 25},
+    {"code": "PER", "name": "英仙座",   "name_en": "Perseids",           "active": ["07-17", "08-24"], "peak_sol": 140.0,  "ra": 48.0,  "dec": 58.0,  "dra": 1.35, "ddec": 0.12, "v": 59, "zhr": 100},
+    {"code": "KCG", "name": "天鹅座κ",  "name_en": "kappa Cygnids",      "active": ["08-03", "08-25"], "peak_sol": 145.0,  "ra": 286.0, "dec": 59.0,  "dra": 0.3,  "ddec": 0.1,  "v": 23, "zhr": 3},
+    {"code": "AUR", "name": "御夫座α",  "name_en": "alpha Aurigids",     "active": ["08-28", "09-05"], "peak_sol": 158.6,  "ra": 91.0,  "dec": 39.0,  "dra": 1.1,  "ddec": 0.0,  "v": 66, "zhr": 6},
+    {"code": "SPE", "name": "九月英仙座ε", "name_en": "Sept. eps Perseids", "active": ["09-05", "09-21"], "peak_sol": 167.0, "ra": 48.0, "dec": 40.0, "dra": 1.0, "ddec": 0.2, "v": 64, "zhr": 5},
+    {"code": "DRA", "name": "天龙座",   "name_en": "Draconids",          "active": ["10-06", "10-10"], "peak_sol": 195.4,  "ra": 262.0, "dec": 54.0,  "dra": 0.0,  "ddec": 0.0,  "v": 20, "zhr": 10},
+    {"code": "STA", "name": "南金牛座", "name_en": "Southern Taurids",   "active": ["09-10", "11-20"], "peak_sol": 197.0,  "ra": 32.0,  "dec": 9.0,   "dra": 0.8,  "ddec": 0.3,  "v": 27, "zhr": 5},
+    {"code": "ORI", "name": "猎户座",   "name_en": "Orionids",           "active": ["10-02", "11-07"], "peak_sol": 208.0,  "ra": 95.0,  "dec": 16.0,  "dra": 0.7,  "ddec": 0.1,  "v": 66, "zhr": 20},
+    {"code": "NTA", "name": "北金牛座", "name_en": "Northern Taurids",   "active": ["10-20", "12-10"], "peak_sol": 230.0,  "ra": 58.0,  "dec": 22.0,  "dra": 0.75, "ddec": 0.2,  "v": 29, "zhr": 5},
+    {"code": "LEO", "name": "狮子座",   "name_en": "Leonids",            "active": ["11-06", "11-30"], "peak_sol": 235.27, "ra": 152.0, "dec": 22.0,  "dra": 0.7,  "ddec": -0.4, "v": 71, "zhr": 15},
+    {"code": "AMO", "name": "麒麟座α",  "name_en": "alpha Monocerotids", "active": ["11-15", "11-25"], "peak_sol": 239.32, "ra": 117.0, "dec": 1.0,   "dra": 0.8,  "ddec": 0.0,  "v": 65, "zhr": 5},
+    {"code": "GEM", "name": "双子座",   "name_en": "Geminids",           "active": ["12-04", "12-20"], "peak_sol": 262.2,  "ra": 112.0, "dec": 33.0,  "dra": 1.0,  "ddec": -0.15, "v": 35, "zhr": 150},
+    {"code": "HYD", "name": "长蛇座σ",  "name_en": "sigma Hydrids",      "active": ["12-03", "12-20"], "peak_sol": 265.5,  "ra": 125.0, "dec": 2.0,   "dra": 0.7,  "ddec": -0.2, "v": 58, "zhr": 7},
+    {"code": "COM", "name": "十二月小狮座", "name_en": "Dec. Leonis Minorids", "active": ["12-05", "02-04"], "peak_sol": 268.0, "ra": 175.0, "dec": 29.0, "dra": 0.8, "ddec": -0.4, "v": 64, "zhr": 5},
+    {"code": "URS", "name": "小熊座",   "name_en": "Ursids",             "active": ["12-17", "12-26"], "peak_sol": 270.7,  "ra": 217.0, "dec": 76.0,  "dra": 0.0,  "ddec": 0.0,  "v": 33, "zhr": 10}
+  ]
+}

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+demo/
+starchaser-data/
+*.avi
+*.h264
+*.mp4

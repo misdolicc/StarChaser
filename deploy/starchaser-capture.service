@@ -1,0 +1,20 @@
+[Unit]
+Description=StarChaser 流星监测 - 采集服务 (实时检测 + 预录像)
+After=network-online.target time-sync.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=__USER__
+WorkingDirectory=__DIR__
+Environment=STARCHASER_CONFIG=/etc/starchaser.toml
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m starchaser capture
+Restart=always
+RestartSec=10
+# 采集循环卡死 (相机无响应) 时由 systemd 自动重启
+WatchdogSec=120
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,59 @@
+# StarChaser 配置示例 —— 复制为 /etc/starchaser.toml 后按实际情况修改。
+# 未写出的项使用内置默认值 (见 starchaser/config.py)。
+
+[site]
+name = "我的观测站"
+latitude = 31.230        # 纬度 (北正)，精确到 0.001° 即可
+longitude = 121.470      # 经度 (东正)
+elevation = 10           # 海拔 (米)
+timezone = "Asia/Shanghai"   # 报表显示时区
+
+[paths]
+data_dir = "/home/pi/starchaser-data"   # 建议放在高耐久 SD 卡或 USB 存储上
+
+[camera]
+source = "picamera2"     # CSI 相机；USB 摄像头改为 "opencv" 并设置 device = 0
+main_size = [1920, 1080] # 录像/分析分辨率 (H.264 硬件编码上限 1080p30)
+lores_size = [640, 360]  # 实时检测分辨率；CPU 跟不上 (状态页帧率不足) 时改为 [480, 270]
+fps = 25                 # 帧率 = 夜间曝光上限 (25fps → 40ms)
+bitrate = 8000000
+linear_gamma = true      # ISP 线性 gamma，便于测光与弱信号检测
+initial_gain = 8.0
+max_gain = 16.0          # 依传感器而定；IMX462 可到 ~30
+target_background = 35   # 夜空背景亮度目标 (0-255)
+noise_reduction = "fast"
+colour_gains = [0.0, 0.0]  # 彩色传感器可设固定白平衡，如 [1.8, 1.6]
+
+[schedule]
+night_sun_altitude = -10.0   # 太阳低于 -10° 开始监测 (航海暮光后)
+snapshot_interval_s = 600    # 每 10 分钟一张叠加快照，用于自动标定与合成底图
+
+[detector]
+k_sigma = 4.5                # 灵敏度：调低更灵敏、误触发更多
+min_speed_px = 0.15          # 低于此速度 (lores 像素/帧) 视为卫星/飞机
+
+[recorder]
+pre_seconds = 3.0            # 预录像时长：触发前保留的秒数
+post_seconds = 2.0
+max_events_per_hour = 120
+
+[analysis]
+min_speed_deg_s = 1.5
+max_duration_s = 8.0
+keep_rejected_video = false  # 被排除的候选默认只保留叠加图
+
+[calibration]
+fov_deg = 185.0              # 鱼眼镜头视场
+circle_radius_px = 0         # 鱼眼像圈半径 (全分辨率像素)；0 = 图像短边的一半
+north_angle_deg = -1         # 大致知道北方在图像中的方向可填 (0=上方，顺时针)；-1 = 自动搜索
+min_altitude_deg = 5.0       # 低于该高度角的区域不检测 (地面光污染、树木)
+
+[storage]
+min_free_gb = 2.0            # 空间不足时按优先级删除旧视频 (保留图片与数据)
+keep_video_days = 90
+
+[worker]
+process_at_night = true      # false = 夜里只采集，天亮后再统一分析
+
+[web]
+port = 8080

@@ -1,0 +1,15 @@
+[Unit]
+Description=StarChaser 流星监测 - 局域网报表服务
+After=network-online.target
+
+[Service]
+User=__USER__
+WorkingDirectory=__DIR__
+Environment=STARCHASER_CONFIG=/etc/starchaser.toml
+ExecStart=/usr/bin/python3 -m starchaser web
+Restart=always
+RestartSec=10
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

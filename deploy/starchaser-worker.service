@@ -1,0 +1,23 @@
+[Unit]
+Description=StarChaser 流星监测 - 处理服务 (分析 / 标定 / 报表)
+After=starchaser-capture.service
+
+[Service]
+Type=notify
+User=__USER__
+WorkingDirectory=__DIR__
+Environment=STARCHASER_CONFIG=/etc/starchaser.toml
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=1
+ExecStart=/usr/bin/python3 -m starchaser worker
+Restart=always
+RestartSec=30
+WatchdogSec=900
+Nice=15
+IOSchedulingClass=idle
+# 内存保护：Zero 2W 只有 512MB，处理进程超过软上限时被回收/换出，不挤占采集进程
+MemoryHigh=220M
+MemoryMax=320M
+
+[Install]
+WantedBy=multi-user.target

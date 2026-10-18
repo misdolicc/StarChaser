@@ -1,0 +1,24 @@
+[project]
+name = "starchaser"
+version = "0.1.0"
+description = "树莓派 Zero 2W 全天流星监测：预录像、实时检测、天体测量、流星雨归属、自动报表"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+# 树莓派上依赖全部通过 apt 安装 (python3-picamera2/opencv/scipy/numpy)，此处不声明以免 pip 覆盖系统包
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["numpy", "opencv-python-headless", "scipy", "pytest", "pyflakes", "tzdata"]
+
+[project.scripts]
+starchaser = "starchaser.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["starchaser*"]
+
+[tool.setuptools.package-data]
+starchaser = ["data/*.csv", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
